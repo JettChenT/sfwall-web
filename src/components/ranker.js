@@ -59,6 +59,11 @@ const Ranker = () => {
     //   setLoading(false)
   }
 
+  const load = async ()=>{
+    if(started){
+        setLoading(false)
+    }
+  }
 
   return (
     <div className="flex flex-col h-screen my-auto items-center">
@@ -66,7 +71,7 @@ const Ranker = () => {
         className="w-3/5"
         src={`https://source.unsplash.com/${imageid}/1600x900`}
         style={loading?{display:'none'}:{}}
-        onLoad={()=>setLoading(false)}
+        onLoad={()=>load()}
       ></img>
       <span>{loading&&msg}</span>
       <ClipLoader loading={loading} size={150} />
