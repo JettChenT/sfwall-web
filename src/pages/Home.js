@@ -1,12 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import SignupButton from '../components/signupbtn'
-
-const navigation = [
-  { name: 'Profile', href: '/profile' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-]
+import { Link } from 'react-router-dom'
 
 export default function Home() {
   return (
@@ -39,12 +33,12 @@ export default function Home() {
                   </SignupButton>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <a
-                    href="#"
+                  <Link
+                    to="/ranking"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
                   >
-                    Live demo
-                  </a>
+                    Rank images
+                  </Link>
                 </div>
               </div>
             </div>
