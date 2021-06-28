@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import ClipLoader from "react-spinners/ClipLoader";
 
-const Ranker = () => {
+const Rater = () => {
   const [imageid, setImageid] = useState("");
   const serverUrl = process.env.REACT_APP_SERVER_URL;
   const { getAccessTokenSilently } = useAuth0();
@@ -100,4 +100,4 @@ const Ranker = () => {
   );
 };
 
-export default Ranker;
+export default Rater;

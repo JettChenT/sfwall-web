@@ -10,7 +10,7 @@ import {
   Link
 } from "react-router-dom";
 import ProtectedRoute from './auth/protected-route';
-import Ranker from './components/ranker';
+import Rater from './components/rating';
 
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home}/>
         <ProtectedRoute path="/profile" component={Profile}/>
-        <ProtectedRoute path="/ranking" component={Ranker}/>
+        <ProtectedRoute path="/rating" component={Rater}/>
       </Switch>
     </>
   );

@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom'
 import AuthenticationButton from '../components/authbtn'
 
 const navigation = [
+    { name: 'Home', href: '/' },
     { name: 'Profile', href: '/profile' },
-    { name: 'Ranking', href: '/ranking' },
-    { name: 'Marketplace', href: '#' },
+    { name: 'Rate images', href: '/rating' },
     { name: 'Company', href: '#' },
   ]
 
 const Nav = ()=>{
     return (
-        <Popover>
+        <Popover className="relative z-50">
             {({ open }) => (
               <>
                 <div className="relative pt-6 px-4 sm:px-6 lg:px-8">
@@ -81,15 +81,12 @@ const Nav = ()=>{
                         </div>
                       </div>
                       <div className="px-2 pt-2 pb-3 space-y-1">
-                        {navigation.map((item) => (
-                          <a
-                            key={item.name}
-                            href={item.href}
-                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                          >
-                            {item.name}
-                          </a>
-                        ))}
+                      {navigation.map((item) => (
+                        <Link to={item.href} className="block font-medium text-gray-500 hover:text-gray-900">
+                          {item.name}
+                        </Link>
+                      ))}
+                      <AuthenticationButton />
                       </div>
                     </div>
                   </Popover.Panel>
