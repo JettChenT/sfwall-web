@@ -8,7 +8,7 @@ const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Profile', href: '/profile' },
     { name: 'Rate images', href: '/rating' },
-    { name: 'Company', href: '#' },
+    { name: 'Recommendation', href: '/imgrid' },
   ]
 
 const Nav = ()=>{

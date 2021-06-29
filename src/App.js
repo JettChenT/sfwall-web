@@ -3,6 +3,7 @@ import './App.css';
 import Home from './pages/Home'
 import Profile from './pages/profile'
 import Nav from './components/nav'
+import ImageGrid from './components/imageGrid';
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" exact component={Home}/>
         <ProtectedRoute path="/profile" component={Profile}/>
         <ProtectedRoute path="/rating" component={Rater}/>
+        <ProtectedRoute path="/imgrid" component={ImageGrid}/>
       </Switch>
     </>
   );
