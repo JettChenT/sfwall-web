@@ -13,7 +13,6 @@ import {
 import ProtectedRoute from './auth/protected-route';
 import Rater from './components/rating';
 
-
 function App() {
   return (
     <>

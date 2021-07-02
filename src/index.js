@@ -5,6 +5,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
 import { BrowserRouter as Router } from "react-router-dom";
+import splitbee from '@splitbee/web';
+
+splitbee.init()
 
 ReactDOM.render(
   <Router>
