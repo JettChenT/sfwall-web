@@ -1,14 +1,14 @@
 import { Popover, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import AuthenticationButton from '../components/authbtn'
 
 const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Profile', href: '/profile' },
+    { name: "Info", href:"/info" },
     { name: 'Rate images', href: '/rating' },
-    { name: 'Recommendation', href: '/imgrid' },
+    { name: 'Recommendation', href: '/imgrid' }
   ]
 
 const Nav = ()=>{
@@ -82,9 +82,9 @@ const Nav = ()=>{
                       </div>
                       <div className="px-2 pt-2 pb-3 space-y-1">
                       {navigation.map((item) => (
-                        <Link to={item.href} className="block font-medium text-gray-500 hover:text-gray-900">
+                        <NavLink to={item.href} className="block font-medium text-gray-500 hover:text-gray-900" activeClassName="text-blue-500">
                           {item.name}
-                        </Link>
+                        </NavLink>
                       ))}
                       <AuthenticationButton />
                       </div>

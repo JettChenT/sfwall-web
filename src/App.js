@@ -20,6 +20,10 @@ function App() {
       <Nav/>
       <Switch>
         <Route path="/" exact component={Home}/>
+        <Route path="/info" component={() => { 
+            window.location.href = 'https://info.scan4wall.xyz'; 
+            return null;
+        }}/>
         <ProtectedRoute path="/profile" component={Profile}/>
         <ProtectedRoute path="/rating" component={Rater}/>
         <ProtectedRoute path="/imgrid" component={ImageGrid}/>
