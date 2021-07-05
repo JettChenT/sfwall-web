@@ -8,7 +8,8 @@ const navigation = [
     { name: 'Home', href: '/' },
     { name: "Info", href:"/info" },
     { name: 'Rate images', href: '/rating' },
-    { name: 'Recommendation', href: '/imgrid' }
+    { name: 'Simulator', href:'/recommend'},
+    { name: 'Similar', href: '/imgrid' }
   ]
 
 const Nav = ()=>{

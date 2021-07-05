@@ -1,44 +1,61 @@
 /* This example requires Tailwind CSS v2.0+ */
-import SignupButton from '../components/signupbtn'
-import { Link } from 'react-router-dom'
+import SignupButton from "../components/signupbtn";
+import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import SigninButton from "../components/signinbtn";
 
 export default function Home() {
+  const { isAuthenticated } = useAuth0();
   return (
     <div className="relative">
       <div className="max-w-7xl mx-auto">
         <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-          <svg
-            className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
-            fill="currentColor"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <polygon points="50,0 100,0 50,100 0,100" />
-          </svg>
+            <svg
+              className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
+              fill="currentColor"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <polygon points="50,0 100,0 50,100 0,100" />
+            </svg>
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="block xl:inline">Personalized</span>{' '}
-                <span className="block text-indigo-600 xl:inline">Wallpapers</span>
+                <span className="block xl:inline">Wallpapers</span>{" "}
+                <span className="block text-indigo-600 xl:inline">
+                  Personalized.
+                </span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                Scan-for-wallpapers is a wallpaper application driven by <span className="text-blue-500">Artificial Intelligence</span> that curates wallpapers to the user's interest.
-                This project is a work in progress and <span className="text-red-600">desperately in need of a frontend dev</span>.
+                With Scan-for-wallpapers, you will never have to search for a good wallpaper again.
+                We can predict what kind of wallpaper you would like, and provide only the best to you.
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <SignupButton>
-                    Sign up 
-                  </SignupButton>
+                  {isAuthenticated ? (
+                    <Link
+                      to="/recommend"
+                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                    >
+                      Simulator
+                    </Link>
+                  ) : (
+                    <SignupButton>Sign up</SignupButton>
+                  )}
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <Link
-                    to="/rating"
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
-                  >
-                    Rate images
-                  </Link>
+                  {
+                    isAuthenticated?
+                    <Link
+                      to="/rating"
+                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
+                    >
+                      Rate images
+                    </Link>
+                    :
+                    <SigninButton>Log in</SigninButton>
+                  }
                 </div>
               </div>
             </div>
@@ -53,5 +70,5 @@ export default function Home() {
         />
       </div>
     </div>
-  )
+  );
 }

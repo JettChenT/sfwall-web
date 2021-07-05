@@ -12,10 +12,11 @@ import {
 } from "react-router-dom";
 import ProtectedRoute from './auth/protected-route';
 import Rater from './components/rating';
+import Recommendation from './components/recommendation';
 
 function App() {
   return (
-    <>
+    <div className="h-screen">
       <Nav/>
       <Switch>
         <Route path="/" exact component={Home}/>
@@ -26,8 +27,9 @@ function App() {
         <ProtectedRoute path="/profile" component={Profile}/>
         <ProtectedRoute path="/rating" component={Rater}/>
         <ProtectedRoute path="/imgrid" component={ImageGrid}/>
+        <ProtectedRoute path="/recommend" component={Recommendation}/>
       </Switch>
-    </>
+    </div>
   );
 }
 

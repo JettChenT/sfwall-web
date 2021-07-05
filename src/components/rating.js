@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import ClipLoader from "react-spinners/ClipLoader";
+import Loader from "./loader";
 import Slider from "rc-slider";
+import { Dialog } from "@headlessui/react";
 import "rc-slider/assets/index.css";
 
 const marks = {
@@ -18,6 +19,7 @@ const Rater = () => {
   let [loading, setLoading] = useState(true);
   let [started, setStarted] = useState(false);
   let [rating, setRating] = useState(0.5);
+  let [count, setCount] = useState(0);
   let [msg, setMsg] = useState("Press Start to start ranking images!");
 
   const UpdateImgId = async () => {
@@ -38,8 +40,22 @@ const Rater = () => {
     }
   };
 
+  const update = async () => {
+    const token = await getAccessTokenSilently();
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    axios
+      .post(`${serverUrl}/update`, null, { headers: headers })
+      .then((res) => {
+        console.log(res.data);
+        setMsg("Recommendation system updated!")
+      });
+  };
+
   const makerank = async (score) => {
     setLoading(true);
+    setMsg("Loading...");
     try {
       const token = await getAccessTokenSilently();
       const headers = {
@@ -50,6 +66,11 @@ const Rater = () => {
         photo_id: imageid,
       };
       UpdateImgId();
+      setCount(count + 1);
+      console.log(count);
+      if (count > 0 && count % 10 === 0) {
+        update();
+      }
       setRating(0.5);
       axios
         .post(`${serverUrl}/rate`, data, { headers: headers })
@@ -72,22 +93,25 @@ const Rater = () => {
   const load = async () => {
     if (started) {
       setLoading(false);
+      if(count%10!==0 || count==0){
+        setMsg(
+          <span>You have rated <span className="text-green-500">{count}</span> images, rate <span className="text-green-500">{10-count%10}</span> more images to trigger an update in the recommendation system</span>
+        )
+      }
     }
   };
 
   return (
-    <div className="flex flex-col h-screen my-auto items-center">
+    <div className="h-5/6 flex flex-col my-auto items-center">
+      <span className="font-sans my-2 text-lg text-blue-500 italic shadow-sm bg-gray-200 py-1 px-2 rounded-md">{msg}</span>
       <img
-        className="w-3/5"
         src={`https://source.unsplash.com/${imageid}/1600x900`}
         style={loading ? { display: "none" } : {}}
-        className="object-contain h-2/3 w-full"
+        className="object-contain h-2/3"
         onLoad={() => load()}
       ></img>
-      <span>{loading && msg}</span>
-      <ClipLoader loading={loading} size={150} />
-      {
-        started && 
+      <Loader loading={loading} size={150} />
+      {started && (
         <Slider
           min={0}
           max={1}
@@ -96,18 +120,18 @@ const Rater = () => {
           dots={true}
           marks={marks}
           value={rating}
-          className="max-w-md m-5 mb-10"
+          className="max-w-md mt-3 mb-7"
           onChange={(value) => setRating(value)}
-          disabled={!started||loading}
+          disabled={!started || loading}
         />
-      }
+      )}
 
       {started ? (
         <div className="flex">
           <button
             className="bg-blue-300 hover:bg-blue-500 disabled:opacity-50 transform hover:scale-105  text-gray-800 font-bold py-2 px-4 rounded"
             onClick={() => makerank(rating)}
-            disabled={!started||loading}
+            disabled={!started || loading}
           >
             RATE
           </button>
