@@ -3,9 +3,9 @@ import { Fragment } from 'react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link, NavLink } from 'react-router-dom'
 import AuthenticationButton from '../components/authbtn'
+import logo from '../SFWLogo.svg'
 
 const navigation = [
-    { name: 'Home', href: '/' },
     { name: "Info", href:"/info" },
     { name: 'Rate images', href: '/rating' },
     { name: 'Simulator', href:'/recommend'},
@@ -24,13 +24,14 @@ const Nav = ()=>{
                   >
                     <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
                       <div className="flex items-center justify-between w-full md:w-auto">
-                        <a href="#">
+                        <Link to="/">
                           <span className="sr-only">Workflow</span>
                           <img
-                            className="h-8 w-auto sm:h-10"
-                            src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                            className="h-8 w-auto sm:h-10 inline"
+                            src={logo}
                           />
-                        </a>
+                           <span className="text-blue-600 font-sans text-lg p-3 font-bold">Scan For Wallpapers</span>
+                        </Link>
                         <div className="-mr-2 flex items-center md:hidden">
                           <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                             <span className="sr-only">Open main menu</span>
@@ -70,9 +71,10 @@ const Nav = ()=>{
                         <div>
                           <img
                             className="h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                            src={logo}
                             alt=""
                           />
+                          <span className="text-blue-600 font-sans">Scan For Wallpapers</span>
                         </div>
                         <div className="-mr-2">
                           <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
