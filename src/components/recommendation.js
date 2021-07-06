@@ -40,10 +40,10 @@ const Recommendation = () => {
         y={1024}
         style={loading ? { display: "none" } : {}}
         onLoad={()=>setLoading(false)}
-        className="object-contain h-2/3"
+        className="object-contain mt-5 h-5/6"
       />
       <button
-        className="bg-red-300 hover:bg-red-500 text-gray-800 font-bold my-10 py-2 px-4 rounded disabled:opacity-30"
+        className= "mt-5 rounded-full nm-flat-gray-200 hover:nm-flat-gray-200-lg leading-5 px-8 py-4 uppercase font-bold tracking-widest transition duration-200 ease-in-out transform hover:scale-110"
         onClick={() => getRecommendation()}
         disabled={loading}
       >

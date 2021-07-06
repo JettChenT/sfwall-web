@@ -129,7 +129,7 @@ const Rater = () => {
       {started ? (
         <div className="flex">
           <button
-            className="bg-blue-300 hover:bg-blue-500 disabled:opacity-50 transform hover:scale-105  text-gray-800 font-bold py-2 px-4 rounded"
+            className="rounded-full nm-flat-gray-200 hover:nm-flat-gray-200-lg leading-5 px-8 py-4 uppercase font-bold tracking-widest transition duration-200 ease-in-out transform hover:scale-110 disabled:opacity-25"
             onClick={() => makerank(rating)}
             disabled={!started || loading}
           >
@@ -139,7 +139,7 @@ const Rater = () => {
         </div>
       ) : (
         <button
-          className="bg-red-300 hover:bg-red-500 text-gray-800 font-bold py-2 px-4 rounded"
+          className="rounded-full nm-flat-red-200 hover:nm-flat-red-200-lg leading-5 px-8 py-4 uppercase font-bold tracking-widest transition duration-200 ease-in-out transform hover:scale-110"
           onClick={() => start()}
         >
           START
