@@ -43,7 +43,7 @@ const Recommendation = () => {
         className="object-contain mt-5 h-5/6"
       />
       <button
-        className= "mt-5 rounded-full nm-flat-gray-200 hover:nm-flat-gray-200-lg leading-5 px-8 py-4 uppercase font-bold tracking-widest transition duration-200 ease-in-out transform hover:scale-110"
+        className= "mt-5 rounded-full nm-flat-gray-200 hover:nm-flat-gray-200-lg leading-5 px-8 py-4 uppercase font-bold tracking-widest transition duration-200 ease-in-out transform disabled:opacity-25"
         onClick={() => getRecommendation()}
         disabled={loading}
       >
