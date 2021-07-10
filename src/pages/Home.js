@@ -23,7 +23,7 @@ export default function Home() {
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
                 <span className="block xl:inline">Wallpapers</span>{" "}
-                <span className="block text-indigo-600 xl:inline">
+                <span className="block xl:inline text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-400">
                   Personalized.
                 </span>
               </h1>
