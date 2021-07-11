@@ -9,6 +9,7 @@ const navigation = [
     { name: "Info", href:"/info" },
     { name: 'Rate images', href: '/rating' },
     { name: 'Simulator', href:'/recommend'},
+    { name: 'Top images', href:'/top'},
     { name: 'Similar', href: '/imgrid' }
   ]
 

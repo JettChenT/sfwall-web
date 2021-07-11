@@ -28,9 +28,9 @@ const TopGrid = () => {
         console.log(tmpimages);
         setImages(tmpimages);
         console.log(images);
+        setLoading(false);
       });
     setStarted(true);
-    setLoading(false);
   };
 
   const downloadImg = async (img_id) => {
@@ -62,6 +62,7 @@ const TopGrid = () => {
   return (
   <div className="relative mx-auto max-h-screen w-11/12 mt-10">
       <span className="text-4xl text-gray-700 font-extrabold">Your top {N} images: (Click to download)</span>
+      <br/>
       <Loader loading={loading}/>
       <div className="grid grid-cols-3 gap-4 mt-5">
         {images.map((img) => {
