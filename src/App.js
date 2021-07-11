@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import Profile from './pages/profile'
 import Nav from './components/nav'
 import ImageGrid from './components/imageGrid';
+import Dashboard from './pages/dashboard';
+import TopGrid from './components/tops';
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,7 +16,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import ProtectedRoute from './auth/protected-route';
 import Rater from './components/rating';
 import Recommendation from './components/recommendation';
-import Dashboard from './pages/dashboard';
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -32,6 +33,7 @@ function App() {
         <ProtectedRoute path="/imgrid" component={ImageGrid}/>
         <ProtectedRoute path="/recommend" component={Recommendation}/>
         <ProtectedRoute path="/dash" component={Dashboard}/>
+        <ProtectedRoute path="/top" component={TopGrid}/>
       </Switch>
     </div>
   );

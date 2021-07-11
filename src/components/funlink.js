@@ -31,7 +31,7 @@ import { Link } from 'react-router-dom'
 
 const FunLink = ( {title, description, to, linkDesc, fcolor="purple", tcolor="indigo"} ) => {
     return (
-        <div className={`bg-gradient-to-br from-${fcolor}-500 to-${tcolor}-500 p-8 text-white rounded-3xl mt-10 mr-10 w-auto transition duration-200 ease-in-out transform hover:-translate-y-1 flex-1`}>
+        <div className={`bg-gradient-to-br from-${fcolor}-500 to-${tcolor}-500 p-8 text-white rounded-3xl mt-10 mx-5 w-auto transition duration-200 ease-in-out transform hover:-translate-y-1 flex-1`}>
            <div>
                <span className="block mb-3 font-bold text-xl md:text-2xl">
                     {title}

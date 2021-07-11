@@ -29,6 +29,14 @@ const Dashboard = () => {
                 fcolor="green"
                 tcolor="indigo"
             />
+            <FunLink
+                title="Top Images"
+                description="View the top images among the 25,000 images in our dataset selected by your interest."
+                to="/top"
+                linkDesc="Start exploring"
+                fcolor="pink"
+                tcolor="purple"
+            />
         </div>
     )
 }
