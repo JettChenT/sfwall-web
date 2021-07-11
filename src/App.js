@@ -10,16 +10,19 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 import ProtectedRoute from './auth/protected-route';
 import Rater from './components/rating';
 import Recommendation from './components/recommendation';
+import Dashboard from './pages/dashboard';
 
 function App() {
+  const { isAuthenticated } = useAuth0();
   return (
     <div className="h-screen">
       <Nav/>
       <Switch>
-        <Route path="/" exact component={Home}/>
+        <Route path="/" exact component={isAuthenticated?Dashboard:Home}/>
         <Route path="/info" component={() => { 
             window.location.href = 'https://info.scan4wall.xyz'; 
             return null;
@@ -28,6 +31,7 @@ function App() {
         <ProtectedRoute path="/rating" component={Rater}/>
         <ProtectedRoute path="/imgrid" component={ImageGrid}/>
         <ProtectedRoute path="/recommend" component={Recommendation}/>
+        <ProtectedRoute path="/dash" component={Dashboard}/>
       </Switch>
     </div>
   );
