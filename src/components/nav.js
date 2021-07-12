@@ -9,7 +9,6 @@ import { FeedbackFish } from '@feedback-fish/react'
 import FAQIndex from '../pages/FAQ'
 
 const navigation = [
-    { name: "Info", href:"/info", requireAuth:false},
     { name: 'App', href: '/', requireAuth:true },
     { name:"FAQ", href:'/faq', requireAuth:false}
   ]

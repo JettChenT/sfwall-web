@@ -17,6 +17,7 @@ import ProtectedRoute from './auth/protected-route';
 import Rater from './components/rating';
 import Recommendation from './components/recommendation';
 import FAQIndex from './pages/FAQ';
+import Footer from './components/footer';
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -37,6 +38,7 @@ function App() {
         <ProtectedRoute path="/dash" component={Dashboard}/>
         <ProtectedRoute path="/top" component={TopGrid}/>
       </Switch>
+      <Footer/>
     </div>
   );
 }
