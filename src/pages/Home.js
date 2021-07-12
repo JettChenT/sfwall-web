@@ -58,10 +58,13 @@ export default function Home() {
         </div>
       </div>
     </div>
-    <ReactPlayer 
-      className="m-auto block" 
-      url="https://jettchen12345.wistia.com/medias/dt810ffoyb"
-    />
+    <div className="w-full">
+      <ReactPlayer  
+        url="https://jettchen12345.wistia.com/medias/dt810ffoyb"
+        className="container mx-auto md:px-32 lg:px-64"
+        width="100%"
+      />
+    </div>
     <FAQIndex/>
   </>
   );
