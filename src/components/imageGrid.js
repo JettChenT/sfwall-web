@@ -62,10 +62,10 @@ const ImageGrid = () => {
 
   return (
   <>
-      <div className="relative grid grid-cols-3 gap-4 mx-auto max-h-screen lg:w-3/5 md:w-4/5 sm:w-4/5">
+      <div className="relative mx-auto max-h-screen w-11/12 mt-5 grid grid-cols-3 gap-4">
         {images.map((img) => {
           return <button onClick={()=>reco(img)} className={`rounded-md ${current==img?"ring-4 ring-blue-600":""}`}>
-              <UnsplashImg img_id={img} x={1024} y={720} key={img}/>
+              <UnsplashImg img_id={img} x={window.innerWidth/3} y={window.innerHeight/3.5} key={img}/>
         </button>
         })}
       </div>
