@@ -16,6 +16,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import ProtectedRoute from './auth/protected-route';
 import Rater from './components/rating';
 import Recommendation from './components/recommendation';
+import FAQIndex from './pages/FAQ';
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -28,6 +29,7 @@ function App() {
             window.location.href = 'https://info.scan4wall.xyz'; 
             return null;
         }}/>
+        <Route path="/faq" component={FAQIndex}/>
         <ProtectedRoute path="/profile" component={Profile}/>
         <ProtectedRoute path="/rating" component={Rater}/>
         <ProtectedRoute path="/imgrid" component={ImageGrid}/>

@@ -3,10 +3,12 @@ import SignupButton from "../components/signupbtn";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import SigninButton from "../components/signinbtn";
+import FAQIndex from "./FAQ";
 
 export default function Home() {
   const { isAuthenticated } = useAuth0();
   return (
+    <>
     <div className="relative">
       <div className="max-w-7xl mx-auto">
         <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
@@ -69,5 +71,7 @@ export default function Home() {
         />
       </div>
     </div>
+    <FAQIndex/>
+  </>
   );
 }

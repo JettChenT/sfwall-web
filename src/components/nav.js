@@ -4,16 +4,18 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link, NavLink } from 'react-router-dom'
 import AuthenticationButton from '../components/authbtn'
 import logo from '../SFWLogo.svg'
+import { useAuth0 } from '@auth0/auth0-react'
+import { FeedbackFish } from '@feedback-fish/react'
+import FAQIndex from '../pages/FAQ'
 
 const navigation = [
-    { name: "Info", href:"/info" },
-    { name: 'Rate images', href: '/rating' },
-    { name: 'Simulator', href:'/recommend'},
-    { name: 'Top images', href:'/top'},
-    { name: 'Similar', href: '/imgrid' }
+    { name: "Info", href:"/info", requireAuth:false},
+    { name: 'App', href: '/', requireAuth:true },
+    { name:"FAQ", href:'/faq', requireAuth:false}
   ]
 
 const Nav = ()=>{
+  const { isAuthenticated } = useAuth0();
     return (
         <Popover className="relative z-50">
             {({ open }) => (
@@ -43,11 +45,16 @@ const Nav = ()=>{
                     </div>
                     <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
                       {navigation.map((item) => (
-                        <Link to={item.href} className="font-medium text-gray-500 hover:text-gray-900">
+                        (isAuthenticated&&item.requireAuth || !item.requireAuth)&&
+                        <NavLink to={item.href} className="font-medium text-gray-500 hover:text-gray-900" >
                           {item.name}
-                        </Link>
+                        </NavLink>
                       ))}
+                      <FeedbackFish projectId="affe5b88ca2fce">
+                        <NavLink to="#" className="font-medium text-gray-500 hover:text-gray-900">Send feedback</NavLink>
+                      </FeedbackFish>
                       <AuthenticationButton />
+
                     </div>
                   </nav>
                 </div>
@@ -86,7 +93,8 @@ const Nav = ()=>{
                       </div>
                       <div className="px-2 pt-2 pb-3 space-y-1">
                       {navigation.map((item) => (
-                        <NavLink to={item.href} className="block font-medium text-gray-500 hover:text-gray-900" activeClassName="text-blue-500">
+                        (isAuthenticated && item.requireAuth || !item.requireAuth)&&
+                        <NavLink to={item.href} className="block font-medium text-gray-500 my-2 hover:text-gray-900" activeClassName="text-blue-500">
                           {item.name}
                         </NavLink>
                       ))}
