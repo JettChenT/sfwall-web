@@ -60,7 +60,7 @@ const TopGrid = () => {
     updateImg();
   }
   return (
-  <div className="relative mx-auto max-h-screen w-11/12 mt-10">
+  <div className="relative mx-auto w-11/12 mt-10">
       <span className="text-4xl text-gray-700 font-extrabold">Your top {N} images: (Click to download)</span>
       <br/>
       <Loader loading={loading}/>
