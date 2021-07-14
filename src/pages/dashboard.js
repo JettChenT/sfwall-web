@@ -28,6 +28,9 @@ const steps = [
     }
   ];
   
+  const current = new Date();
+  const nextYear = new Date();
+  nextYear.setFullYear(current.getFullYear()+4)
 
 const Dashboard = () => {
     const [cookies, setCookie] = useCookies(['isIntroduced']);
@@ -37,7 +40,7 @@ const Dashboard = () => {
         enabled={!cookies.isIntroduced}
         steps={steps}
         initialStep={0}
-        onExit={()=>setCookie('isIntroduced',true,{ path:'/' })}
+        onExit={()=>setCookie('isIntroduced',true,{ path:'/' , expires:nextYear})}
     />
       <div className="container mx-auto flex flex-row flex-wrap">
         <FunLink
