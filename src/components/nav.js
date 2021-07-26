@@ -10,7 +10,8 @@ import FAQIndex from '../pages/FAQ'
 
 const navigation = [
     { name: 'App', href: '/', requireAuth:true },
-    { name:"FAQ", href:'/faq', requireAuth:false}
+    { name: 'Profile', href:'/profile', requireAuth:true },
+    { name: 'FAQ', href:'/faq', requireAuth:false}
   ]
 
 const Nav = ()=>{
