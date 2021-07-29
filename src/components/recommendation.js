@@ -60,7 +60,7 @@ const Recommendation = () => {
 
   return (
     <FullScreen handle={handle} className="h-full">
-      <div className="flex flex-col h-full mt-5 my-auto items-center" style={{ backgroundImage: `url(https://source.unsplash.com/${imageid}/${window.innerWidth}x${window.innerHeight})` }}>
+      <div className="flex flex-col h-full mt-5 my-auto items-center" style={{ backgroundImage: `url(https://ik.imagekit.io/sfwall/https://source.unsplash.com/${imageid}/${window.innerWidth}x${window.innerHeight})` }}>
         <Loader loading={loading}/>
         <button
           className= "mt-5 opacity-80 rounded-full nm-flat-gray-200 hover:nm-flat-gray-200-lg leading-5 px-8 py-4 uppercase font-bold tracking-widest transition duration-200 ease-in-out transform disabled:opacity-25"
