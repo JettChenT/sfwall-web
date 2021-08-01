@@ -2,6 +2,7 @@
 import SignupButton from "../components/signupbtn";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import Signup from "../components/waitlist";
 import SigninButton from "../components/signinbtn";
 import FAQIndex from "./FAQ";
 import ReactPlayer from "react-player/wistia";
@@ -36,7 +37,7 @@ export default function Home() {
                       Simulator
                     </Link>
                   ) : (
-                    <SignupButton>Sign up</SignupButton>
+                    <Signup/>
                   )}
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">

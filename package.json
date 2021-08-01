@@ -13,6 +13,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
+    "eslint-config-react-app": "^6.0.0",
     "intro.js": "^4.1.0",
     "intro.js-react": "^0.4.0",
     "rc-slider": "^9.7.2",
@@ -27,6 +28,7 @@
     "react-scripts": "4.0.3",
     "react-spinners": "^0.11.0",
     "tailwindcss-neumorphism": "^0.1.0",
+    "waitlistapi": "^0.6.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
