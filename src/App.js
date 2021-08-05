@@ -18,6 +18,7 @@ import Rater from './components/rating';
 import Recommendation from './components/recommendation';
 import FAQIndex from './pages/FAQ';
 import Footer from './components/footer';
+import DownloadPage from './pages/downloads';
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -37,6 +38,7 @@ function App() {
         <ProtectedRoute path="/recommend" component={Recommendation}/>
         <ProtectedRoute path="/dash" component={Dashboard}/>
         <ProtectedRoute path="/top" component={TopGrid}/>
+        <ProtectedRoute path="/downloads" component={DownloadPage}/>
       </Switch>
       <Footer/>
     </div>

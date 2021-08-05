@@ -41,7 +41,7 @@ const TokenField = () => {
             <input 
                 class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight" 
                 type="text" 
-                placeholder="Get your SFW token, please store it in a safe place, as it would only be displayed once! " 
+                placeholder="Get your SFW token, will only be displayed once." 
                 value={accessToken}
                 disabled
             />

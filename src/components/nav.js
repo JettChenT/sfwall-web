@@ -11,7 +11,8 @@ import FAQIndex from '../pages/FAQ'
 const navigation = [
     { name: 'App', href: '/', requireAuth:true },
     { name: 'Profile', href:'/profile', requireAuth:true },
-    { name: 'FAQ', href:'/faq', requireAuth:false}
+    { name: 'Downloads', href:'/downloads', requireAuth:true },
+    { name: 'FAQ', href:'/faq', requireAuth:false},
   ]
 
 const Nav = ()=>{

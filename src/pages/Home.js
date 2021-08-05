@@ -6,6 +6,7 @@ import Signup from "../components/waitlist";
 import SigninButton from "../components/signinbtn";
 import FAQIndex from "./FAQ";
 import ReactPlayer from "react-player/wistia";
+import StepsPage from "../components/steps";
 
 export default function Home() {
   const { isAuthenticated } = useAuth0();
@@ -18,7 +19,7 @@ export default function Home() {
         <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:w-full lg:pb-28 xl:pb-32">
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center">
-              <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-8xl">
+              <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl">
                 <span className="block">Wallpapers</span>{" "}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-400">
                   Personalized.
@@ -54,6 +55,9 @@ export default function Home() {
                   }
                 </div>
               </div>
+              <span className="text-sm text-gray-500">
+                  Avaliable in Web,  Mac,  and iPhone
+              </span>
             </div>
           </main>
         </div>
@@ -66,6 +70,7 @@ export default function Home() {
         width="100%"
       />
     </div>
+    {/* <StepsPage/> */}
     <FAQIndex/>
   </>
   );
