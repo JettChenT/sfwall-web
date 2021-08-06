@@ -14,7 +14,7 @@ const FAQS = [
   {
     qid: 2,
     q: "Is there a desktop application?",
-    a: "Currently not, but it is in development!",
+    a: "Yes! there is a desktop application for MacOS, iOS, and Windows.",
   },
 ];
 
