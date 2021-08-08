@@ -73,8 +73,8 @@ const TopGrid = () => {
             >
                 <UnsplashImg 
                     img_id={img} 
-                    x={window.innerWidth/3} 
-                    y={window.innerHeight/3} 
+                    x={Math.round(window.innerWidth/3)} 
+                    y={Math.round(window.innerHeight/3)} 
                     key={img} 
                     className={`rounded-md ${(loadTarget==img) && "opacity-20"}`}
                 />
