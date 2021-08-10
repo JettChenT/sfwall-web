@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
-import UnsplashImg from "./unsplashImg";
+import AutoLoadUnsplashImg from "./autounsplashimg";
 import Loader from "./loader";
 
 const TopGrid = () => {
@@ -24,7 +24,7 @@ const TopGrid = () => {
       .then((resp) => {
         const data = resp.data;
         console.log(data);
-        let tmpimages = data["response"].map((img) => img["img_id"]);
+        let tmpimages = data["response"];
         console.log(tmpimages);
         setImages(tmpimages);
         console.log(images);
@@ -68,15 +68,16 @@ const TopGrid = () => {
         {images.map((img) => {
           return( 
             <button 
-                onClick={ () => downloadImg(img)}
+                onClick={ () => downloadImg(img.img_id)}
                 className="transform transition-transform ease-in-out hover:scale-105"
             >
-                <UnsplashImg 
-                    img_id={img} 
+                <AutoLoadUnsplashImg 
+                    img_id={img.img_id}
+                    blurhash={img.blur_hash}
                     x={Math.round(window.innerWidth/3)} 
                     y={Math.round(window.innerHeight/3)} 
-                    key={img} 
-                    className={`rounded-md ${(loadTarget==img) && "opacity-20"}`}
+                    key={img.img_id} 
+                    className={`rounded-md ${(loadTarget==img.img_id) && "opacity-20"}`}
                 />
             </button>
           )

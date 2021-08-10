@@ -5,6 +5,7 @@ import Loader from "./loader";
 import Slider from "rc-slider";
 import { Dialog } from "@headlessui/react";
 import "rc-slider/assets/index.css";
+import UnsplashImg from "./unsplashImg";
 
 const marks = {
   0: "Hideous",
@@ -13,7 +14,8 @@ const marks = {
 };
 
 const Rater = () => {
-  const [imageid, setImageid] = useState("");
+  let [imageid, setImageid] = useState("");
+  let [blurhash, setBlurhash] = useState("L#LNrwR*NGWB~XWBWBj[IUayj[j[");
   const serverUrl = process.env.REACT_APP_SERVER_URL;
   const { getAccessTokenSilently } = useAuth0();
   let [loading, setLoading] = useState(true);
@@ -34,6 +36,7 @@ const Rater = () => {
         .then((res) => {
           const responseData = res.data;
           setImageid(responseData["img_id"]);
+          setBlurhash(responseData["blur_hash"]);
         });
     } catch (error) {
       alert(error.message);
@@ -104,13 +107,20 @@ const Rater = () => {
   return (
     <div className="h-5/6 flex flex-col my-auto items-center">
       <span className="font-sans my-2 text-lg text-blue-500 italic shadow-sm bg-gray-200 py-1 px-2 rounded-md">{msg}</span>
-      <img
-        src={`https://source.unsplash.com/${imageid}/1600x900`}
-        style={loading ? { display: "none" } : {}}
-        className="object-contain h-2/3"
-        onLoad={() => load()}
-      ></img>
-      <Loader loading={loading} size={150} />
+      {
+        started &&
+      <div className="object-contain h-2/3">
+        <UnsplashImg
+          x={720}
+          y={360}
+          img_id={imageid}
+          blurhash={blurhash}
+          loading={loading}
+          loadFunc={()=>load()}
+        />
+      </div>
+      }
+      {/* <Loader loading={loading} size={150} /> */}
       {started && (
         <Slider
           min={0}
