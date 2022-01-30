@@ -38,7 +38,7 @@ export default function Home() {
                       Simulator
                     </Link>
                   ) : (
-                    <Signup/>
+                    <SignupButton> Sign up </SignupButton>
                   )}
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
