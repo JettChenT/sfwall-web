@@ -22,9 +22,9 @@ const Footer = () => {
                     <li>
                         <a 
                             className="text-xs mt-3 lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-gray-800 dark:text-gray-50"
-                            href="https://twitter.com/jettchen5"    
+                            href="https://jettchen.me"    
                         >
-                          twitter
+                          Jett Chen
                         </a>
                     </li>
                   </ul>
