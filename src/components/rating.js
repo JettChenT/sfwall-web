@@ -14,7 +14,7 @@ const marks = {
 };
 
 const Rater = () => {
-  let [imageid, setImageid] = useState("https://www.scan4wall.com");
+  let [imageid, setImageid] = useState("2PakANi-QL8");
   let [blurhash, setBlurhash] = useState("L#LNrwR*NGWB~XWBWBj[IUayj[j[");
   const serverUrl = process.env.REACT_APP_SERVER_URL;
   const { getAccessTokenSilently } = useAuth0();
